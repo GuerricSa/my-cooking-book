@@ -1,0 +1,10 @@
+<%= simple_form_for @recipe do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :cooking_time %>
+  <% if @recipe.new_record? %>
+  <%= f.button :submit, "Créer la recette" %>
+  <% else %>
+  <%= f.button :submit, "modifier la recette" %>
+  <% end %>
+<% end %>
