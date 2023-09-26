@@ -2,6 +2,7 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :cooking_time %>
+  <%= f.input :photo, as: :file %>
   <% if @recipe.new_record? %>
   <%= f.button :submit, "Créer la recette" %>
   <% else %>

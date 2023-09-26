@@ -1,0 +1,11 @@
+
+  <div class="card-product">
+    <%= cl_image_tag recipe.photo.key %>
+    <div class="card-product-infos">
+      <h2><%= recipe.title %></h2>
+      <p><%= recipe.description %></p>
+    </div>
+    <div class="cooking-time">
+      <p><%= recipe.cooking_time %></p>
+    </div>
+  </div>

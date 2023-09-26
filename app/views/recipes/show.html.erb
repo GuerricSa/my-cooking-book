@@ -2,6 +2,19 @@
 <%= @recipe.description %>
 <%= @recipe.cooking_time %>
 
+<div>
+  <% @recipe.compositions.each do |composition| %>
+  <%= composition.ingredient.name %>
+  <%= composition.quantity %>
+  <% end %>
+
+  <h3>ajouter un ingrédient</h3>
+  <%= simple_form_for [@recipe, @composition] do |f| %>
+  <%= f.input :ingredient_name %>
+  <%= f.input :quantity %>
+  <%= f.button :submit %>
+  <% end %>
+</div>
 <%= link_to "créer une recette", new_recipe_path%>
 <%= link_to "modifier la recette", edit_recipe_path(@recipe) %>
 <% if current_user == @recipe.user %>

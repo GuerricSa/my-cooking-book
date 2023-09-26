@@ -1,10 +1,12 @@
 class RecipesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_recipe, only: %i[show edit update destroy]
   def index
     @recipes = Recipe.all
   end
 
   def show
+    @composition = Composition.new
   end
 
   def new
@@ -37,7 +39,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :cooking_time)
+    params.require(:recipe).permit(:title, :description, :cooking_time, :composition, :photo)
   end
 
   def set_recipe
